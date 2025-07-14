@@ -6,15 +6,10 @@
         const vcfUrl = "https://drive.google.com/uc?export=download&id=17z-8_QqCUxIZ7_rwkT7hhTzv1OlOO2pK";  
         
         if (isIOS) {
-            // Попытка открыть в Safari
-            window.location.href = `applewebdata://${vcfUrl}`;
-            
-            // Если не сработало (например, в Telegram WebView)
-            setTimeout(() => {
-                alert("Скопируйте ссылку и откройте в Safari:\n" + vcfUrl);
-            }, 500);
+            window.open(`safari://${vcfUrl}`, '_blank');
+        
         } else {
-             window.location.href = `intent://${vcfUrl}#Intent;package=com.android.chrome;scheme=https;end`
+             window.open(`intent://${vcfUrl}#Intent;package=com.android.chrome;scheme=https;end`, '_blank');
         }
     </script>
 </head>
