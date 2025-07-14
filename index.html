@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script>
+        const isIOS = /iPhone|iPad|iPod/i.test(navigator.userAgent);
+        const vcfUrl = "https://drive.google.com/uc?export=download&id=17z-8_QqCUxIZ7_rwkT7hhTzv1OlOO2pK";  
+        
+        if (isIOS) {
+            // Попытка открыть в Safari
+            window.location.href = `applewebdata://${vcfUrl}`;
+            
+            // Если не сработало (например, в Telegram WebView)
+            setTimeout(() => {
+                alert("Скопируйте ссылку и откройте в Safari:\n" + vcfUrl);
+            }, 500);
+        } else {
+             window.location.href = `intent://${vcfUrl}#Intent;package=com.android.chrome;scheme=https;end`
+        }
+    </script>
+</head>
+<body>
+    <p>Перенаправление...</p>
+</body>
+</html>
