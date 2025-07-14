@@ -6,7 +6,7 @@
         const vcfUrl = "https://drive.google.com/uc?export=download&id=17z-8_QqCUxIZ7_rwkT7hhTzv1OlOO2pK";  
         
         if (isIOS) {
-            window.open(`safari://${vcfUrl}`, '_blank');
+            window.open(`applewebdata://${vcfUrl}`, '_blank');
         
         } else {
              window.open(`intent://${vcfUrl}#Intent;package=com.android.chrome;scheme=https;end`, '_blank');
